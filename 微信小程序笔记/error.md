@@ -7,7 +7,7 @@ Expecting 'STRING','NUMBER','NULL','TRUE','FALSE','{','[', got EOF
   1 |  
 ~    
 ```  
-修改意见：需要在app.json中添加相关配置文件
+修改意见：需要在app.json中添加相关配置文件  
 2. 错误  
 ```
 pages/welcome/welcome 出现脚本错误或者未正确调用 Page()
