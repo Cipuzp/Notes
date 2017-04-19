@@ -46,3 +46,5 @@ wx:if="{{这里的内容也可以绑定，如(wxname)}}"  在绑定位置使用w
     }
 ```
 前面的数据绑定位置想要显示img里的内容，需要用src="{{img.avatar}}"的方法显示，嵌套多层使用多个img.img1.img2等等依次增加
+- this.setData(posts_content);这段代码的作用是将posts_content中的内容绑定到data中
+-   <block wx:for="{{posts_key}}" wx:for-item="item">中间是要显示的内容，被block包住<block>，使用方法{{item.avatar}}开连接
