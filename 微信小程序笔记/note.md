@@ -76,8 +76,7 @@ wx:if="{{这里的内容也可以绑定，如(wxname)}}"  在绑定位置使用w
 - 按住alt + shift + F 可以格式化代码样式
 
 - 通过这些代码来接受数据
-```var postsData = require('../../data/posts-data.js')```（只能用相对路径），
-```module.exports={
+```var postsData = require('../../data/posts-data.js')```（只能用相对路径），```module.exports={
     postList:local_database
 }```
 来封装数据
