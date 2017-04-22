@@ -86,3 +86,87 @@ wx:if="{{这里的内容也可以绑定，如(wxname)}}"  在绑定位置使用w
 - 用```@import "post-Item/post-item-template.wxss";```在总体css文件中导入模板中的wxss样式文件
 
 - 用```<view catchtap="onPostTap" data-postId="{{item.postId}}">```来接收postId值，用```var postId = event.currentTarget.dataset.postid;```来设置postId
+
+- 跨页面传递postId值:
+这是主页面
+```
+    wx.navigateTo({
+      url: 'post-detail/post-detail?这里=' + postId
+    })
+```
+这是要传递过去的子页面
+```
+    onLoad:function(option){
+    var postId=option.这里;
+```
+
+- 这是赋值
+```
+        var postData=postsData.postList[postId];
+        this.setData({
+            postData=postData
+        })
+```
+
+这是接受赋值{{postData.headImgSrc}}
+
+- 设置缓存，这是同步方法
+
+```
+        wx.setStorageSync('key',"看门狗")
+和
+        wx.setStorageSync('key',{
+            game:"看门狗",
+            developer:"育碧"
+        })
+都可以
+```
+
+- 获取缓存的基本方法
+```
+    onCollectionTap: function (event) {
+        var game = wx.getStorageSync('key')
+    }
+```
+onCollectionTap函数绑定在你需要点击的部件处
+
+- 清除缓存的方法
+```
+       //缓存的上限最大不能超过10MB
+    onShareTap:function(event){
+       wx.removeStorageSync('key')  //清除目标缓存
+       wx.clearStorageSync()  //清除所有缓存
+    }
+```
+
+- 判断是否收藏
+```
+    onCollectionTap: function (event) {
+        var postdCollected = wx.getStorageSync('posts_Collected');
+        var postCollexted = postsCollected[this.data.currentPostId];
+        postCollexted = !postCollexted;//取反操作
+    }
+```
+
+- 显示消息提示栏的方法(自动消失)
+```
+        wx.showToast({
+            title:postCollexted?"收藏成功":"取消成功"
+        })
+```
+
+- 显示消息提示栏的方法(不自动消失)
+```
+        wx.showModal({
+            title:"收藏",
+            content:"是否收藏该文章",
+            showcencel:"true",
+            cancelText:"不收藏",
+            cancelColor:"#333",
+            confirmText:"收藏",
+            confirmColor:"405f80"
+        })
+
+```
+
+- 在API方法中的success等方法中this的指代已经发生了改变
