@@ -193,3 +193,38 @@ onCollectionTap函数绑定在你需要点击的部件处
             }
         })
 ```
+
+- 播放暂停音乐的方法:
+
+```
+ onMusicTap: function () {
+        var isPlayingMusic = this.data.isPlayingMusic;
+        if (isPlayingMusic) {
+            wx.pauseBackgroundAudio;     //暂停播放音乐
+            this.setData({
+                isPlayingMusic: false
+            })
+        } else {
+            wx.playBackgroundAudio({        //开始播放音乐
+                dataUrl: 'http://ws.stream.qqmusic.qq.com/C100003507bR0gDKBm.m4a?fromtag=38',
+                title: '夜夜夜夜-齐秦',
+                coverImgUrl: 'http://y.gtimg.cn/music/photo_new/T002R150x150M000002xOmp62kqSic.jpg?max_age=2592000'
+            })
+            this.setData({
+                isPlayingMusic: true
+            })
+        }
+    }
+```
+
+- 切换图片的两种方法:  
+第一种 
+```
+ <image wx:if="{{collected}}" catchtap="onCollectionTap" src="/images/icon/collection.png"></image>
+      <image wx:else catchtap="onCollectionTap" src="/images/icon/collection-anti.png"></image>
+```
+第二种
+```
+ <image catchtap="onMusicTap" class="audio" src="{{isPlayingMusic?'/images/music/music-start.png':'/images/music/music-stop.png'}}"></image>
+```
+ 
