@@ -1,9 +1,11 @@
+
 <!--wxml是编写小程序骨架的文件-->
-<!--div-->
 <view class="container">
-	<image class="user-avater" src="/images/avater.png"></image>
-	<text class="user-name"><text style="color:red;">Hello</text>,朱攀</text>
-	<view class="moto-container">
-		<text class="moto">开启小程序之旅</text>
-	</view>
+  <image class="user-avater" src="/images/avatar.png"></image>
+  <text class="user-name">
+    Hello,朱攀
+  </text>
+  <view class="moto-container" bindtap="onTap">
+    <text class="moto">开启小程序之旅</text>
+  </view>
 </view>

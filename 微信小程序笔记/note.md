@@ -85,6 +85,8 @@ wx:if="{{这里的内容也可以绑定，如(wxname)}}"  在绑定位置使用w
 
 - 用```@import "post-Item/post-item-template.wxss";```在总体css文件中导入模板中的wxss样式文件
 
+- 在template写图片URL地址时，最好使用绝对路径，因为template模板可能给多个页面使用，如过给不同层级的文件使用，这时使用相对路径就会出错
+
 - 用```<view catchtap="onPostTap" data-postId="{{item.postId}}">```来接收postId值，用```var postId = event.currentTarget.dataset.postid;```来设置postId
 
 - 跨页面传递postId值:
@@ -226,5 +228,26 @@ onCollectionTap函数绑定在你需要点击的部件处
 第二种
 ```
  <image catchtap="onMusicTap" class="audio" src="{{isPlayingMusic?'/images/music/music-start.png':'/images/music/music-stop.png'}}"></image>
+
+图片URL地址一定要加上''包围
 ```
  
+- 监听后台音乐播放情况方法
+
+```
+        var that = this;
+        //监听音乐播放事件
+        wx.onBackgroundAudioPlay(function () {
+            // callback
+            that.setData({
+                isPlayingMusic: true
+            })
+        })
+        //监听音乐暂停事件
+        wx.onBackgroundAudioPause(function () {
+            // callback
+            that.setData({
+                isPlayingMusic: false
+            })
+        })
+```
