@@ -220,12 +220,15 @@ onCollectionTap函数绑定在你需要点击的部件处
 ```
 
 - 切换图片的两种方法:  
-第一种 
+第一种   
+
 ```
  <image wx:if="{{collected}}" catchtap="onCollectionTap" src="/images/icon/collection.png"></image>
       <image wx:else catchtap="onCollectionTap" src="/images/icon/collection-anti.png"></image>
 ```
-第二种
+
+第二种    
+
 ```
  <image catchtap="onMusicTap" class="audio" src="{{isPlayingMusic?'/images/music/music-start.png':'/images/music/music-stop.png'}}"></image>
 
@@ -250,4 +253,25 @@ onCollectionTap函数绑定在你需要点击的部件处
                 isPlayingMusic: false
             })
         })
+```
+
+- target和currentTarget的区别
+
+```
+  //target指的是当前点击的组件，currentTarget指的是事件捕获的组件
+    //target这里指的是image而currentTarget指的是swiper组件
+        var postId = event.target.dataset.postid;//经过调试后，target中才有id号
+
+
+ <swiper catchtap="onSwiperTap" class="swiper" indicator-dots="true" autoplay="true" interval="5000">
+    <swiper-item>
+      <image  src="/images/wx.png" data-postId="3"></image>
+    </swiper-item>
+    <swiper-item>
+      <image  src="/images/vr.png" data-postId="4"></image>
+    </swiper-item>
+    <swiper-item>
+      <image  src="/images/iqiyi.png" data-postId="5"></image>
+    </swiper-item>
+  </swiper>
 ```
