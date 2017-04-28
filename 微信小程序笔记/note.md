@@ -83,7 +83,7 @@ wx:if="{{这里的内容也可以绑定，如(wxname)}}"  在绑定位置使用w
 
 - 用```<import src="posts-item/post-item-template.wxml"/>```（即能用相对路径，也能使用绝对路径）来导入template模板，用```      <template is="postItem" data="{{...item}}" />```来使用模板,  ```...```的作用是将数据展开
 
-- 用```@import "post-Item/post-item-template.wxss";```在总体css文件中导入模板中的wxss样式文件
+- 用```@import "post-Item/post-item-template.wxss";```在总体css文件中导入模板中的wxss样式文件结尾处需要加上分号
 
 - 在template写图片URL地址时，最好使用绝对路径，因为template模板可能给多个页面使用，如过给不同层级的文件使用，这时使用相对路径就会出错
 
@@ -274,4 +274,51 @@ onCollectionTap函数绑定在你需要点击的部件处
       <image  src="/images/iqiyi.png" data-postId="5"></image>
     </swiper-item>
   </swiper>
+```
+
+- template模板多层套用时，css也需要多层套用
+
+
+```
+  justify-content:space-around;   //使flex中的部件平均分布
+  justify-content:space-between;  //使flex中的部件两端分布
+  justify-content:center;  	      //使flex中的部件居中
+```
+
+
+
+- 使用flex盒子模型后，vertical-align样式不能使用 
+
+- http状态码
+
+```
+400参数错误
+404没有找到资源
+500服务器未知错误
+502网关错误
+301重定向
+```
+
+- 用
+```
+var app =getApp();
+```
+来获取全局属性
+
+- 获取api方法
+```
+ wx.request({
+            url: url,
+            // data: {},
+            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            header: {
+                "Content-Type": "json"
+            }, // 设置请求的 header
+            success: function (res) {
+                console.log(res)
+            },
+            fail: function (error) {
+                console.log(error)
+            }
+        })
 ```
