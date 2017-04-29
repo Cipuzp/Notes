@@ -322,3 +322,8 @@ var app =getApp();
             }
         })
 ```
+
+- 请求三条数据的方法
+```
+        var inTheatersUrl = app.globalData.doubanBase + "/v2/movie/in_theaters"+"?start=0&count=3";
+```
