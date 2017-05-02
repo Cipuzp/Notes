@@ -256,7 +256,8 @@ onCollectionTap函数绑定在你需要点击的部件处
         })
 ```
 
-- target和currentTarget的区别
+- target和
+- Target的区别
 
 ```
   //target指的是当前点击的组件，currentTarget指的是事件捕获的组件
@@ -330,3 +331,16 @@ var app =getApp();
 ```
 
 - 编写模板时，先小后大，传递数据时，先大后小
+
+- 多页面传参数
+
+```
+    onMoreTap: function (event) {
+        var category = event.currentTarget.dataset.category;
+        wx.navigateTo({
+            url: 'more-movie/more-movie?category=' + category
+        })
+    },
+下面接收
+    var category=options.category;
+```
