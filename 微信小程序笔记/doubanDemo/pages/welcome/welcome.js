@@ -1,7 +1,7 @@
 Page({
-  onTap: function () {
-    wx.redirectTo({
-      url: '../posts/post',
+  onTap: function (event) {
+    wx.switchTab({
+      url: '../posts/post'
     })
-  },
+  }
 })

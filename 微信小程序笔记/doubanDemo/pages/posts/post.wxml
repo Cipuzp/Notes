@@ -2,15 +2,15 @@
 
 <!--轮播图窗口-->
 <view>
-  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000">
+  <swiper catchtap="onSwiperTap" class="swiper" indicator-dots="true" autoplay="true" interval="5000">
     <swiper-item>
-      <image src="/images/wx.png"></image>
+      <image  src="/images/wx.png" data-postId="3"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/vr.png"></image>
+      <image  src="/images/vr.png" data-postId="4"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/iqiyi.png"></image>
+      <image  src="/images/iqiyi.png" data-postId="5"></image>
     </swiper-item>
   </swiper>
   <block wx:for="{{posts_key}}" wx:for-item="item">
