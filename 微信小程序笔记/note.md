@@ -344,3 +344,14 @@ var app =getApp();
 下面接收
     var category=options.category;
 ```
+
+- 设置导航条方法
+```
+ onReady: function (event) {
+    wx.setNavigationBarTitle({
+      title: this.data.navigateTitle,
+      // title:this.setData(navigateTitle)
+    })
+  }
+只能在onReady里面设置
+```
