@@ -54,7 +54,17 @@ Page({
             app.globalData.g_isPlayMusic = false;
             app.globalData.g_currentMisicPostId = null;
         })
+        //监听音乐停止事件
+        wx.onBackgroundAudioStop(function (event) {
+            // callback
+            that.setData({
+                isPlayingMusic: false
+            })
+            app.globalData.g_isPlayMusic = false;
+            app.globalData.g_currentMisicPostId = null;
+        })
     },
+
 
     onCollectionTap: function (event) {
         this.getPostsCollectedSyc();//同步方法
