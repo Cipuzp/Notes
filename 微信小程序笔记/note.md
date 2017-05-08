@@ -256,8 +256,7 @@ onCollectionTap函数绑定在你需要点击的部件处
         })
 ```
 
-- target和
-- Target的区别
+- target和Target的区别
 
 ```
   //target指的是当前点击的组件，currentTarget指的是事件捕获的组件
